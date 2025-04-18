@@ -1,0 +1,43 @@
+def pre_order(node):
+    if node is None:
+        return []
+    
+    result = [node.data]
+    if node.left: 
+        result.extend(pre_order(node.left))
+    
+    if node.right:
+        result.extend(pre_order(node.right))
+    
+    return result
+
+def in_order(root: Node) -> list[int]:
+    if root is None:
+        return []
+
+    result = list()
+    if root.left is not None:
+        result += in_order(root.left)
+    
+    result.append(root.data)
+
+    if root.right is not None:
+        result += in_order(root.right)
+
+    return result
+
+def post_order(root: Node) -> list[int]:
+    if root is None:
+        return []
+
+    result = list()
+    if root.left is not None:
+        result += post_order(root.left)
+    
+    if root.right is not None:
+        result += post_order(root.right)
+    
+    result.append(root.data)
+
+    return result
+     
