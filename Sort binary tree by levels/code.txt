@@ -1,0 +1,22 @@
+def tree_by_levels(root) -> list[int]:
+    if root is None:
+        return []
+
+    queue = list()
+    queue.append(root)
+    
+    result = list()
+    
+    while queue:
+        current = queue[0]
+        result.append(current.value)
+        
+        if current.left:
+            queue.append(current.left)
+        
+        if current.right:
+            queue.append(current.right)
+        
+        del queue[0]
+    
+    return result 
